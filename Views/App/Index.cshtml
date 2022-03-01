@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Veterinary_clinic.DB.App>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Programari curente</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.animal_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.doctor_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.animal_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doctor_name)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.appointment_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.appointment_id">Delete</a>
+            </td>
+        </tr>
+
+    }
+        </tbody>
+
+    </table>
+<div>
+    <a asp-action="Back">Back</a>
+</div>
